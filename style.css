@@ -111,3 +111,24 @@
     font-size: 2rem;
   }
   
+  .shiny-text {
+    font-size: 72px;
+    font-weight: 900;
+    position: relative;
+    color: #a18cd1; /* base text color */
+    background: linear-gradient(90deg, #a18cd1 30%, #a3cef1 50%, #a18cd1 70%);
+    background-size: 200% 100%;
+    background-position: 200% 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
