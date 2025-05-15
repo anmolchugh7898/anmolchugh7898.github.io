@@ -1,116 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Node.js Developer Portfolio</title>
+  <link 
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" 
+rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0e1117;
-      color: #fff;
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
     }
     header {
-      background: #1f2937;
-      padding: 2rem;
+      background: #2c3e50;
+      color: #fff;
+      padding: 40px 20px;
       text-align: center;
     }
     header h1 {
-      margin: 0;
       font-size: 2.5rem;
-      color: #10b981;
     }
-    header p {
-      font-size: 1.2rem;
-      color: #d1d5db;
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #2c3e50;
+      margin: 0 auto 20px;
+      display: block;
     }
     section {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
+      margin-bottom: 40px;
     }
     h2 {
-      color: #10b981;
+      color: #2c3e50;
+      margin-bottom: 20px;
     }
     ul {
       list-style: none;
-      padding: 0;
+      padding-left: 0;
     }
-    ul li::before {
-      content: "\2022";
-      color: #10b981;
-      font-weight: bold;
-      display: inline-block;
-      width: 1em;
+    ul li {
+      background: #ecf0f1;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+    }
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding-bottom: 10px;
+    }
+    .slider img {
+      height: 200px;
+      border-radius: 8px;
     }
     footer {
+      background: #2c3e50;
+      color: #fff;
       text-align: center;
-      padding: 1rem;
-      background: #1f2937;
-      color: #9ca3af;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Your Name</h1>
-    <p>Node.js Developer | 4 Years Experience</p>
+    <img src="profile.jpg" alt="Profile Image" class="profile-img">
+    <h1>Node.js Developer - 4 Years Experience</h1>
+    <p>Microservices | REST & gRPC APIs | Cloud-Native Solutions</p>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      Experienced backend developer with 4+ years of expertise in 
-designing scalable microservices architectures using Node.js, Express.js, 
-and NestJS. Adept at building efficient APIs, integrating with distributed 
-systems, and deploying cloud-native applications.
-    </p>
-  </section>
+  <div class="container">
+    <section>
+      <h2>Languages & Frameworks</h2>
+      <ul>
+        <li>Node.js, Express.js, NestJS, Moleculer, TypeScript, 
+JavaScript</li>
+        <li>HTML, CSS, gRPC</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Skills</h2>
-    <h3>Languages & Frameworks:</h3>
-    <ul>
-      <li>Node.js, Express.js, NestJS, Moleculer</li>
-      <li>TypeScript, JavaScript, HTML, CSS</li>
-      <li>gRPC</li>
-    </ul>
-    <h3>Databases:</h3>
-    <ul>
-      <li>MongoDB, Redis, MySQL, PostgreSQL, AstraDB</li>
-    </ul>
-    <h3>Tools & Technologies:</h3>
-    <ul>
-      <li>Microservices, AWS, Docker, Apache Pulsar, Temporal</li>
-      <li>Keycloak, CI/CD, Git, GitHub, Postman, Jira</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Databases</h2>
+      <ul>
+        <li>MongoDB, Redis, MySQL, PostgreSQL, AstraDB</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Healthcare Platform:</strong> Built scalable backend 
-with NestJS, integrated Redis, PostgreSQL, and secured APIs using 
-Keycloak.</li>
-      <li><strong>Real-time Notification System:</strong> Used Apache 
-Pulsar and Temporal to deliver async event-driven architecture.</li>
-      <li><strong>Payment Gateway Integration:</strong> Developed 
-microservices for Stripe/PayPal with Moleculer.</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Tools & Technologies</h2>
+      <ul>
+        <li>Microservices, AWS, Docker, Apache Pulsar, Temporal</li>
+        <li>Keycloak, CI/CD, Git, GitHub, Postman, Jira</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: your.email@example.com</p>
-    <p>GitHub: <a href="https://github.com/yourusername" 
-style="color:#10b981;">github.com/yourusername</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" 
-style="color:#10b981;">linkedin.com/in/yourusername</a></p>
-  </section>
+    <section>
+      <h2>Project Showcase</h2>
+      <div class="slider">
+        <img src="project1.png" alt="Project 1">
+        <img src="project2.png" alt="Project 2">
+        <img src="project3.png" alt="Project 3">
+      </div>
+    </section>
+  </div>
 
   <footer>
-    &copy; 2025 Your Name. All rights reserved.
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
   </footer>
 </body>
+
 </html>
