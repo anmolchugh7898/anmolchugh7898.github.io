@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #0f0f1a;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  .stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 3px 3px;
+    animation: moveStars 40s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes moveStars {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, #a855f7, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .hire-me {
+    background: linear-gradient(to right, #ec4899, #38bdf8);
+    padding: 0.6rem 1.2rem;
+    border-radius: 9999px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .hero {
+    text-align: center;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+  
+  .name {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #a855f7, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .role {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    font-weight: 700;
+  }
+  
+  .desc {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  
+  .socials {
+    margin-top: 2rem;
+  }
+  
+  .socials a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  
+  .socials a:hover {
+    background: #38bdf8;
+  }
+  
+  .rocket {
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+  
