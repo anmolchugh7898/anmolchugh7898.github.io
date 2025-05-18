@@ -13,11 +13,13 @@
       scroll-snap-type: y proximity;
       scroll-behavior: smooth;
     }
+
     section {
       scroll-snap-align: start;
       min-height: 100vh;
       overflow-y: auto;
     }
+
     .stars {
       position: fixed;
       top: 0;
@@ -27,6 +29,7 @@
       background: #000 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="10" cy="10" r="0.5" fill="white"/><circle cx="20" cy="30" r="0.5" fill="white"/><circle cx="30" cy="50" r="0.5" fill="white"/><circle cx="40" cy="70" r="0.5" fill="white"/><circle cx="50" cy="90" r="0.5" fill="white"/><circle cx="60" cy="20" r="0.5" fill="white"/><circle cx="70" cy="40" r="0.5" fill="white"/><circle cx="80" cy="60" r="0.5" fill="white"/><circle cx="90" cy="80" r="0.5" fill="white"/></svg>');
       z-index: -1;
     }
+
     nav {
       position: fixed;
       top: 0;
@@ -39,6 +42,7 @@
       background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(10px);
     }
+
     nav a {
       color: white;
       text-decoration: none;
@@ -46,9 +50,11 @@
       transition: all 0.3s ease;
       padding: 0.3rem 0.6rem;
     }
+
     nav a:hover {
       color: #818cf8;
     }
+
     .hire-me {
       position: fixed;
       right: 1rem;
@@ -61,44 +67,205 @@
       z-index: 100;
       font-size: 0.9rem;
     }
+
     .hire-me:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
+
     section {
       padding: 5rem 1rem 2rem;
     }
+
     .download-resume {
       background: linear-gradient(to right, #4f46e5, #7c3aed);
       transition: all 0.3s ease;
       padding: 0.75rem 1.5rem;
       font-size: 0.9rem;
     }
+
     .download-resume:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4);
     }
+
+    /* Infinite Slider Styles */
+    .skills-slider-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .skills-track {
+      display: flex;
+      animation: scroll 20s linear infinite;
+      width: calc(250px * 16);
+      /* Double the items for seamless looping */
+    }
+
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(-250px * 8));
+        /* Move by half the width */
+      }
+    }
+
+    .skills-slider-container:hover .skills-track {
+      animation-play-state: paused;
+    }
+
     @media (min-width: 768px) {
       nav {
         padding: 1.5rem;
         gap: 2rem;
       }
+
       nav a {
         font-size: 1rem;
         padding: 0.5rem 1rem;
       }
+
       .hire-me {
         right: 2rem;
         top: 1.5rem;
         padding: 0.5rem 1.5rem;
         font-size: 1rem;
       }
+
       section {
         padding: 6rem 2rem 3rem;
       }
+
       .download-resume {
         padding: 0.75rem 2rem;
         font-size: 1rem;
+      }
+
+      .skills-track {
+        width: calc(250px * 16);
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(calc(-250px * 8));
+        }
+      }
+    }
+
+    .skills-slider-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .skills-track {
+      display: flex;
+      width: max-content;
+    }
+
+    .skills-track-speed-1 {
+      animation: scroll1 25s linear infinite;
+    }
+
+    .skills-track-speed-2 {
+      animation: scroll2 40s linear infinite;
+    }
+
+    .skills-track-speed-3 {
+      animation: scroll3 60s linear infinite;
+    }
+
+
+    @keyframes scroll1 {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes scroll2 {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes scroll3 {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .skill-card {
+      width: 160px;
+      min-height: 120px;
+      padding: 0.75rem;
+      background: #1f2937;
+      margin: 0 10px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .skill-card h3 {
+      white-space: normal;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      overflow-wrap: break-word;
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .skill-card {
+        width: 100px;
+        height: 70px;
+        padding: 0.5rem;
+        font-size: 14px;
+        /* smaller font for mobile */
+      }
+
+      .skill-card h3 {
+        font-size: 0.8rem;
+        margin-top: 0.25rem;
       }
     }
   </style>
@@ -121,16 +288,20 @@
   <!-- Home Section -->
   <section id="home" class="flex flex-col items-center justify-center text-center px-4">
     <div>
-      <h1 class="name text-4xl md:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-blue-500 to-violet-500 animate-pulse">
+      <h1
+        class="name text-4xl md:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-blue-500 to-violet-500 animate-pulse">
         Anmol Chugh</h1>
       <h2 class="role mt-2 text-xl md:text-2xl font-semibold">Backend Developer</h2>
-      <p class="desc mt-4 text-base md:text-lg max-w-xl mx-auto">Delivering powerful backend systems driven by a passion for solving
-        real-world challenges.</p>
+      <p class="desc mt-4 text-base md:text-lg max-w-xl mx-auto">Backend developer specializing in scalable,
+        high-performance systems. Skilled in transforming complex requirements into reliable infrastructure using modern
+        technologies. Focused on clean code, best practices, and collaborative problem-solving to deliver robust
+        solutions that drive business growth.</p>
 
       <div class="socials flex justify-center gap-4 md:gap-6 mt-6 md:mt-8">
         <!-- GitHub -->
         <div class="group relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-          <div class="absolute inset-0 rounded-full bg-pink-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500">
+          <div
+            class="absolute inset-0 rounded-full bg-pink-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500">
           </div>
           <a href="https://github.com/anmolchugh7898" class="text-white text-lg md:text-xl z-10 hover:text-pink-500">
             <i class="fa-brands fa-github fa-beat-fade"></i>
@@ -139,7 +310,8 @@
 
         <!-- LinkedIn -->
         <div class="group relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-          <div class="absolute inset-0 rounded-full bg-blue-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500">
+          <div
+            class="absolute inset-0 rounded-full bg-blue-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500">
           </div>
           <a href="https://www.linkedin.com/in/anmol-chugh-250a95178/"
             class="text-white text-lg md:text-xl z-10 hover:text-blue-500">
@@ -149,7 +321,8 @@
 
         <!-- Twitter -->
         <div class="group relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-          <div class="absolute inset-0 rounded-full bg-red-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500">
+          <div
+            class="absolute inset-0 rounded-full bg-red-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500">
           </div>
           <a href="https://x.com/ANMOLCHUGH7898" class="text-white text-lg md:text-xl z-10 hover:text-red-500">
             <i class="fa-brands fa-x-twitter"></i>
@@ -158,7 +331,8 @@
 
         <!-- Email -->
         <div class="group relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-          <div class="absolute inset-0 rounded-full bg-green-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500">
+          <div
+            class="absolute inset-0 rounded-full bg-green-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500">
           </div>
           <a href="mailto:anmolchugh7898@gmail.com" class="text-white text-lg md:text-xl z-10 hover:text-green-500">
             <i class="fa-solid fa-envelope"></i>
@@ -171,7 +345,8 @@
   <!-- About Section -->
   <section id="about" class="max-w-6xl mx-auto px-4 flex flex-col justify-center">
     <div>
-      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+      <h2
+        class="text-2xl md:text-3xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
         About Me</h2>
       <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
         <!-- Image container -->
@@ -183,7 +358,8 @@
         <!-- Text content container -->
         <div class="w-full md:w-2/3 bg-gray-900/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-gray-800">
           <p class="text-base md:text-lg mb-4 md:mb-6">
-            I'm a backend developer focused on building scalable, high-performance systems. With strong skills in Node.js, TypeScript, and Python, I craft efficient, secure, and maintainable APIs and services.
+            I'm a backend developer focused on building scalable, high-performance systems. With strong skills in
+            Node.js, TypeScript, and Python, I craft efficient, secure, and maintainable APIs and services.
           </p>
           <div class="grid grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
             <div class="bg-gray-800/50 p-3 md:p-4 rounded-lg">
@@ -196,7 +372,8 @@
             </div>
           </div>
           <div class="flex justify-center">
-            <a href="media/resume.pdf" download class="download-resume rounded-lg font-semibold text-white flex items-center gap-2">
+            <a href="media/resume.pdf" download
+              class="download-resume rounded-lg font-semibold text-white flex items-center gap-2">
               <i class="fas fa-download"></i>
               Download Resume
             </a>
@@ -209,192 +386,558 @@
   <!-- Projects Section -->
   <section id="projects" class="max-w-6xl mx-auto px-4 flex flex-col justify-center">
     <div>
-      <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+      <h2
+        class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
         My Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-        <!-- Project 1 -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-800 hover:border-purple-500 transition-all">
-          <h3 class="text-lg md:text-xl font-bold text-blue-400 mb-2">Project Title 1</h3>
-          <p class="text-gray-300 text-sm md:text-base mb-3 md:mb-4">Brief description of the project and technologies used.</p>
-          <div class="flex gap-2 flex-wrap">
-            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">Node.js</span>
-            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">TypeScript</span>
-            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">MongoDB</span>
+
+      <!-- Mobile Carousel (hidden on desktop) -->
+      <div class="md:hidden relative overflow-hidden">
+        <div class="projects-carousel flex transition-transform duration-300" id="projects-carousel">
+          <!-- Project 1 -->
+          <div class="min-w-full px-2">
+            <div
+              class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 hover:border-purple-500 transition-all">
+              <h3 class="text-xl font-bold text-blue-400 mb-2">Trabu</h3>
+
+              <!-- Image Carousel Section -->
+              <div class="mb-4 relative group">
+                <!-- Main Image -->
+                <img src="https://example.com/taxwizard-screenshot.jpg" 
+                     alt="FiveStone Taxwizard Dashboard"
+                     class="w-full h-48 object-cover rounded-lg border border-gray-700 mb-2">
+                
+                <!-- Thumbnail Navigation (optional) -->
+                <div class="flex gap-2 overflow-x-auto py-2">
+                  <img src="https://example.com/taxwizard-thumb1.jpg" 
+                       class="w-16 h-12 object-cover rounded border border-gray-600 cursor-pointer hover:border-purple-400">
+                  <img src="https://example.com/taxwizard-thumb2.jpg" 
+                       class="w-16 h-12 object-cover rounded border border-gray-600 cursor-pointer hover:border-purple-400">
+                </div>
+                
+                <!-- Navigation Arrows (shown on hover) -->
+                <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-900/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i class="fas fa-chevron-left text-white text-sm"></i>
+                </button>
+                <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-900/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i class="fas fa-chevron-right text-white text-sm"></i>
+                </button>
+              </div>
+
+              <p class="text-gray-300 text-sm mb-4">Trabu is a social travel platform enabling users to discover
+                destinations, plan trips, and generate personalized itineraries. I engineered backend workflows for
+                itinerary creation, trip inquiries, and user engagement, while facilitating real-time connectivity with
+                local tour operators to automate and enhance the trip planning experience.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">Python</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">Django</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">Postgres</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">AstraDB</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">EventStore DB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="min-w-full px-2">
+            <div
+              class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
+              <h3 class="text-xl font-bold text-purple-400 mb-2">Motonexa</h3>
+
+              <!-- Image Carousel Section -->
+              <div class="mb-4 relative group">
+                <!-- Main Image -->
+                <img src="https://example.com/taxwizard-screenshot.jpg" 
+                     alt="FiveStone Taxwizard Dashboard"
+                     class="w-full h-48 object-cover rounded-lg border border-gray-700 mb-2">
+                
+                <!-- Thumbnail Navigation (optional) -->
+                <div class="flex gap-2 overflow-x-auto py-2">
+                  <img src="https://example.com/taxwizard-thumb1.jpg" 
+                       class="w-16 h-12 object-cover rounded border border-gray-600 cursor-pointer hover:border-purple-400">
+                  <img src="https://example.com/taxwizard-thumb2.jpg" 
+                       class="w-16 h-12 object-cover rounded border border-gray-600 cursor-pointer hover:border-purple-400">
+                </div>
+                
+                <!-- Navigation Arrows (shown on hover) -->
+                <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-900/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i class="fas fa-chevron-left text-white text-sm"></i>
+                </button>
+                <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-900/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i class="fas fa-chevron-right text-white text-sm"></i>
+                </button>
+              </div>
+
+              <p class="text-gray-300 text-sm mb-4">Built a B2B automotive procurement platform enabling seamless parts
+                ordering between garages and suppliers, featuring automated quoting, commission tracking, and real-time
+                updates. Implemented Keycloak authentication and led a 5-developer team to deliver secure, real-time
+                order tracking with integrated WhatsApp/in-app messaging.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">Typescript</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">Molecular</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">MongoDB</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">PostgreSQL</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">WATI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="min-w-full px-2">
+            <div
+              class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
+              <h3 class="text-xl font-bold text-purple-400 mb-2">Immunoact</h3>
+
+              <!-- Image Carousel Section -->
+              <div class="mb-4 relative group">
+                <!-- Main Image -->
+                <img src="https://example.com/taxwizard-screenshot.jpg" 
+                     alt="FiveStone Taxwizard Dashboard"
+                     class="w-full h-48 object-cover rounded-lg border border-gray-700 mb-2">
+                
+                <!-- Thumbnail Navigation (optional) -->
+                <div class="flex gap-2 overflow-x-auto py-2">
+                  <img src="https://example.com/taxwizard-thumb1.jpg" 
+                       class="w-16 h-12 object-cover rounded border border-gray-600 cursor-pointer hover:border-purple-400">
+                  <img src="https://example.com/taxwizard-thumb2.jpg" 
+                       class="w-16 h-12 object-cover rounded border border-gray-600 cursor-pointer hover:border-purple-400">
+                </div>
+                
+                <!-- Navigation Arrows (shown on hover) -->
+                <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-900/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i class="fas fa-chevron-left text-white text-sm"></i>
+                </button>
+                <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-900/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i class="fas fa-chevron-right text-white text-sm"></i>
+                </button>
+              </div>
+              
+              <p class="text-gray-300 text-sm mb-4">Developed a comprehensive platform to manage hospitals, doctors,
+                patients, and multi-phase clinical trials for drug development. Implemented features for trial tracking,
+                appointment scheduling, and automated reporting from trials to laboratories. Integrated real-time
+                communication across all user roles using WebSockets to ensure seamless collaboration and information
+                flow.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">NodeJs</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">NextJs</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">MongoDB</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">MySQL</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">AWS</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="min-w-full px-2">
+            <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
+              <!-- Project Header -->
+              <h3 class="text-xl font-bold text-purple-400 mb-2">FiveStone Taxwizard</h3>
+              
+              <!-- Image Carousel Section -->
+              <div class="mb-4 relative group">
+                <!-- Main Image -->
+                <img src="https://example.com/taxwizard-screenshot.jpg" 
+                     alt="FiveStone Taxwizard Dashboard"
+                     class="w-full h-48 object-cover rounded-lg border border-gray-700 mb-2">
+                
+                <!-- Thumbnail Navigation (optional) -->
+                <div class="flex gap-2 overflow-x-auto py-2">
+                  <img src="https://example.com/taxwizard-thumb1.jpg" 
+                       class="w-16 h-12 object-cover rounded border border-gray-600 cursor-pointer hover:border-purple-400">
+                  <img src="https://example.com/taxwizard-thumb2.jpg" 
+                       class="w-16 h-12 object-cover rounded border border-gray-600 cursor-pointer hover:border-purple-400">
+                </div>
+                
+                <!-- Navigation Arrows (shown on hover) -->
+                <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-900/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i class="fas fa-chevron-left text-white text-sm"></i>
+                </button>
+                <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-900/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i class="fas fa-chevron-right text-white text-sm"></i>
+                </button>
+              </div>
+              
+              <!-- Project Description -->
+              <p class="text-gray-300 text-sm mb-4">
+                Developed a U.S. property tax estimation platform that calculates liabilities based on location, property type, and size. 
+                Engineered custom tax calculation algorithms to identify overassessed properties, and implemented direct-to-court appeal 
+                functionality enabling users to formally contest assessments through the platform.
+              </p>
+              
+              <!-- Tech Stack -->
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">NodeJs</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">ReactJs</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">Docker</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">MySQL</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">AWS</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">CI/CD</span>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <!-- Project 2 -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
-          <h3 class="text-lg md:text-xl font-bold text-purple-400 mb-2">Project Title 2</h3>
-          <p class="text-gray-300 text-sm md:text-base mb-3 md:mb-4">Brief description of the project and technologies used.</p>
+
+
+        <!-- Navigation Dots -->
+        <div class="flex justify-center mt-6 gap-2">
+          <button class="w-3 h-3 rounded-full bg-gray-600 dot-btn active" data-index="0"></button>
+          <button class="w-3 h-3 rounded-full bg-gray-600 dot-btn" data-index="1"></button>
+          <button class="w-3 h-3 rounded-full bg-gray-600 dot-btn" data-index="2"></button>
+          <button class="w-3 h-3 rounded-full bg-gray-600 dot-btn" data-index="4"></button>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button
+          class="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-800/50 p-2 rounded-full hover:bg-gray-700 transition"
+          id="prev-btn">
+          <i class="fas fa-chevron-left text-white"></i>
+        </button>
+        <button
+          class="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-800/50 p-2 rounded-full hover:bg-gray-700 transition"
+          id="next-btn">
+          <i class="fas fa-chevron-right text-white"></i>
+        </button>
+      </div>
+
+      <!-- Desktop Grid (hidden on mobile) -->
+      <div class="hidden md:grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+        <!-- Project 1 -->
+        <div
+          class="bg-gray-900/50 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-800 hover:border-purple-500 transition-all">
+          <h3 class="text-lg md:text-xl font-bold text-blue-400 mb-2">Trabu</h3>
+          <p class="text-gray-300 text-sm md:text-base mb-3 md:mb-4">Trabu is a social travel platform enabling users to
+            discover destinations, plan trips, and generate personalized itineraries. I engineered backend workflows for
+            itinerary creation, trip inquiries, and user engagement, while facilitating real-time connectivity with
+            local tour operators to automate and enhance the trip planning experience.</p>
           <div class="flex gap-2 flex-wrap">
             <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">Python</span>
             <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">Django</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">Postgres</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">AstraDB</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">EventStore DB</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div
+          class="bg-gray-900/50 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
+          <h3 class="text-lg md:text-xl font-bold text-purple-400 mb-2">Motonexa</h3>
+          <p class="text-gray-300 text-sm md:text-base mb-3 md:mb-4">Built a B2B automotive procurement platform
+            enabling seamless parts ordering between garages and suppliers, featuring automated quoting, commission
+            tracking, and real-time updates. Implemented Keycloak authentication and led a 5-developer team to deliver
+            secure, real-time order tracking with integrated WhatsApp/in-app messaging.</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">Typescript</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">Molecular</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">MongoDB</span>
             <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">PostgreSQL</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">WATI</span>
+          </div>
+        </div>
+
+        <div
+          class="bg-gray-900/50 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
+          <h3 class="text-lg md:text-xl font-bold text-purple-400 mb-2">Immunoact</h3>
+          <p class="text-gray-300 text-sm md:text-base mb-3 md:mb-4">Developed a comprehensive platform to manage
+            hospitals, doctors, patients, and multi-phase clinical trials for drug development. Implemented features for
+            trial tracking, appointment scheduling, and automated reporting from trials to laboratories. Integrated
+            real-time communication across all user roles using WebSockets to ensure seamless collaboration and
+            information flow.</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">NodeJs</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">NextJs</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">MongoDB</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">MySQL</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">AWS</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">CI/CD</span>
+          </div>
+        </div>
+
+        <div
+          class="bg-gray-900/50 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
+          <h3 class="text-lg md:text-xl font-bold text-purple-400 mb-2">FiveStone Taxwizard</h3>
+          <p class="text-gray-300 text-sm md:text-base mb-3 md:mb-4">Developed a U.S. property tax estimation platform
+            that calculates liabilities based on location, property type, and size. Engineered custom tax calculation
+            algorithms to identify overassessed properties, and implemented direct-to-court appeal functionality
+            enabling users to formally contest assessments through the platform.</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">NodeJs</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">ReactJs</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">Docker</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">MySQL</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">AWS</span>
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-gray-800 rounded-full text-xs md:text-sm">Hubspot</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
+  <!-- Skills Section with Infinite Slider -->
   <section id="skills" class="max-w-6xl mx-auto px-4 flex flex-col justify-center py-12">
     <div>
-      <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+      <h2
+        class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
         My Skills
       </h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-  
-        <!-- Node.js -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fab fa-node-js text-4xl text-green-500 mb-2"></i>
-          <h3 class="font-semibold text-base">Node.js</h3>
+
+      <!-- Languages & Frameworks -->
+      <h3 class="text-xl font-semibold text-center mb-4 text-blue-300">Languages & Frameworks</h3>
+      <div class="skills-slider-container mb-12">
+        <div class="skills-track skills-track-speed-1">
+          <!-- Items (duplicated for infinite scroll) -->
+          <div class="skill-card">
+            <div class="skill-icon text-green-500"><i class="fab fa-node-js"></i></div>
+            <h3>Node.js</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-gray-400"><i class="fas fa-code"></i></div>
+            <h3>Express.js</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-red-400"><i class="fas fa-project-diagram"></i></div>
+            <h3>NestJS</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-indigo-400"><i class="fas fa-cogs"></i></div>
+            <h3>Moleculer</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-400"><i class="fas fa-code"></i></div>
+            <h3>TypeScript</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-yellow-300"><i class="fab fa-js"></i></div>
+            <h3>JavaScript</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-pink-400"><i class="fab fa-html5"></i></div>
+            <h3>HTML</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-300"><i class="fab fa-css3-alt"></i></div>
+            <h3>CSS</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-purple-400"><i class="fas fa-random"></i></div>
+            <h3>gRPC</h3>
+          </div>
+
+          <!-- Duplicate -->
+          <div class="skill-card">
+            <div class="skill-icon text-green-500"><i class="fab fa-node-js"></i></div>
+            <h3>Node.js</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-gray-400"><i class="fas fa-code"></i></div>
+            <h3>Express.js</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-red-400"><i class="fas fa-project-diagram"></i></div>
+            <h3>NestJS</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-indigo-400"><i class="fas fa-cogs"></i></div>
+            <h3>Moleculer</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-400"><i class="fas fa-code"></i></div>
+            <h3>TypeScript</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-yellow-300"><i class="fab fa-js"></i></div>
+            <h3>JavaScript</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-pink-400"><i class="fab fa-html5"></i></div>
+            <h3>HTML</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-300"><i class="fab fa-css3-alt"></i></div>
+            <h3>CSS</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-purple-400"><i class="fas fa-random"></i></div>
+            <h3>gRPC</h3>
+          </div>
         </div>
-  
-        <!-- Python -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fab fa-python text-4xl text-blue-500 mb-2"></i>
-          <h3 class="font-semibold text-base">Python</h3>
+      </div>
+
+      <!-- Databases -->
+      <h3 class="text-xl font-semibold text-center mb-4 text-green-300">Databases</h3>
+      <div class="skills-slider-container mb-12">
+        <div class="skills-track skills-track-speed-2">
+          <div class="skill-card">
+            <div class="skill-icon text-green-400"><i class="fas fa-database"></i></div>
+            <h3>MongoDB</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-red-400"><i class="fas fa-memory"></i></div>
+            <h3>Redis</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-orange-400"><i class="fas fa-database"></i></div>
+            <h3>MySQL</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-400"><i class="fas fa-database"></i></div>
+            <h3>PostgreSQL</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-purple-400"><i class="fas fa-cloud"></i></div>
+            <h3>AstraDB</h3>
+          </div>
+
+          <!-- Duplicate -->
+          <div class="skill-card">
+            <div class="skill-icon text-green-400"><i class="fas fa-database"></i></div>
+            <h3>MongoDB</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-red-400"><i class="fas fa-memory"></i></div>
+            <h3>Redis</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-orange-400"><i class="fas fa-database"></i></div>
+            <h3>MySQL</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-400"><i class="fas fa-database"></i></div>
+            <h3>PostgreSQL</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-purple-400"><i class="fas fa-cloud"></i></div>
+            <h3>AstraDB</h3>
+          </div>
         </div>
-  
-        <!-- JavaScript -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fab fa-js text-4xl text-yellow-300 mb-2"></i>
-          <h3 class="font-semibold text-base">JavaScript</h3>
-        </div>
-  
-        <!-- TypeScript -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-code text-4xl text-blue-400 mb-2"></i>
-          <h3 class="font-semibold text-base">TypeScript</h3>
-        </div>
-  
-        <!-- Express.js -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-network-wired text-4xl text-gray-300 mb-2"></i>
-          <h3 class="font-semibold text-base">Express.js</h3>
-        </div>
-  
-        <!-- NestJS -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-cubes text-4xl text-red-400 mb-2"></i>
-          <h3 class="font-semibold text-base">NestJS</h3>
-        </div>
-  
-        <!-- REST APIs -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-server text-4xl text-purple-500 mb-2"></i>
-          <h3 class="font-semibold text-base">REST APIs</h3>
-        </div>
-  
-        <!-- GraphQL -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-project-diagram text-4xl text-pink-500 mb-2"></i>
-          <h3 class="font-semibold text-base">GraphQL</h3>
-        </div>
-  
-        <!-- MongoDB -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-database text-4xl text-green-400 mb-2"></i>
-          <h3 class="font-semibold text-base">MongoDB</h3>
-        </div>
-  
-        <!-- PostgreSQL -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-database text-4xl text-indigo-400 mb-2"></i>
-          <h3 class="font-semibold text-base">PostgreSQL</h3>
-        </div>
-  
-        <!-- MySQL -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-database text-4xl text-blue-300 mb-2"></i>
-          <h3 class="font-semibold text-base">MySQL</h3>
-        </div>
-  
-        <!-- Redis -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-memory text-4xl text-red-400 mb-2"></i>
-          <h3 class="font-semibold text-base">Redis</h3>
-        </div>
-  
-        <!-- Apache Pulsar -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-bolt text-4xl text-yellow-500 mb-2"></i>
-          <h3 class="font-semibold text-base">Apache Pulsar</h3>
-        </div>
-  
-        <!-- Temporal -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-clock text-4xl text-cyan-400 mb-2"></i>
-          <h3 class="font-semibold text-base">Temporal</h3>
-        </div>
-  
-        <!-- Docker -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fab fa-docker text-4xl text-blue-500 mb-2"></i>
-          <h3 class="font-semibold text-base">Docker</h3>
-        </div>
-  
-        <!-- AWS -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fab fa-aws text-4xl text-orange-400 mb-2"></i>
-          <h3 class="font-semibold text-base">AWS</h3>
-        </div>
-  
-        <!-- Git -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fab fa-git-alt text-4xl text-red-400 mb-2"></i>
-          <h3 class="font-semibold text-base">Git</h3>
-        </div>
-  
-        <!-- gRPC -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-random text-4xl text-teal-300 mb-2"></i>
-          <h3 class="font-semibold text-base">gRPC</h3>
-        </div>
-  
-        <!-- Socket.IO -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-plug text-4xl text-white mb-2"></i>
-          <h3 class="font-semibold text-base">Socket.IO</h3>
-        </div>
-  
-        <!-- Microservices -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-boxes text-4xl text-pink-400 mb-2"></i>
-          <h3 class="font-semibold text-base">Microservices</h3>
-        </div>
-  
-        <!-- CI/CD -->
-        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg border border-gray-800 text-center">
-          <i class="fas fa-tools text-4xl text-gray-300 mb-2"></i>
-          <h3 class="font-semibold text-base">CI/CD</h3>
-        </div>
-  
       </div>
     </div>
+    </div>
+
+    <!-- Tools & Technologies -->
+    <h3 class="text-xl font-semibold text-center mb-4 text-yellow-300">Tools & Technologies</h3>
+    <div class="skills-slider-container mb-4">
+      <div class="skills-track skills-track-speed-3">
+        <div class="skill-card">
+          <div class="skill-icon text-cyan-400"><i class="fas fa-network-wired"></i></div>
+          <h3>Microservices</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-orange-400"><i class="fab fa-aws"></i></div>
+          <h3>AWS</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-blue-500"><i class="fab fa-docker"></i></div>
+          <h3>Docker</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-purple-500"><i class="fas fa-broadcast-tower"></i></div>
+          <h3>Apache Pulsar</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-pink-400"><i class="fas fa-history"></i></div>
+          <h3>Temporal</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-red-500"><i class="fas fa-lock"></i></div>
+          <h3>Keycloak</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-green-500"><i class="fas fa-sync-alt"></i></div>
+          <h3>CI/CD</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-gray-500"><i class="fab fa-git-alt"></i></div>
+          <h3>Git</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-black"><i class="fab fa-github"></i></div>
+          <h3>GitHub</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-orange-500"><i class="fas fa-vial"></i></div>
+          <h3>Postman</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-blue-400"><i class="fab fa-jira"></i></div>
+          <h3>Jira</h3>
+        </div>
+
+        <!-- Duplicate -->
+        <div class="skill-card">
+          <div class="skill-icon text-cyan-400"><i class="fas fa-network-wired"></i></div>
+          <h3>Microservices</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-orange-400"><i class="fab fa-aws"></i></div>
+          <h3>AWS</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-blue-500"><i class="fab fa-docker"></i></div>
+          <h3>Docker</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-purple-500"><i class="fas fa-broadcast-tower"></i></div>
+          <h3>Apache Pulsar</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-pink-400"><i class="fas fa-history"></i></div>
+          <h3>Temporal</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-red-500"><i class="fas fa-lock"></i></div>
+          <h3>Keycloak</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-green-500"><i class="fas fa-sync-alt"></i></div>
+          <h3>CI/CD</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-gray-500"><i class="fab fa-git-alt"></i></div>
+          <h3>Git</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-black"><i class="fab fa-github"></i></div>
+          <h3>GitHub</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-orange-500"><i class="fas fa-vial"></i></div>
+          <h3>Postman</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon text-blue-400"><i class="fab fa-jira"></i></div>
+          <h3>Jira</h3>
+        </div>
+      </div>
+    </div>
+    </div>
   </section>
-  
+
 
   <!-- Contact Section with Integrated Footer -->
   <section id="contact" class="max-w-2xl mx-auto px-4 flex flex-col justify-between">
     <div>
-      <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+      <h2
+        class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
         Get In Touch</h2>
       <form class="bg-gray-900/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-gray-800 mb-6 md:mb-8">
         <div class="mb-3 md:mb-4">
           <label class="block text-gray-300 mb-1 md:mb-2 text-sm md:text-base">Name</label>
-          <input type="text" class="w-full bg-gray-800 rounded-lg px-3 md:px-4 py-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <input type="text"
+            class="w-full bg-gray-800 rounded-lg px-3 md:px-4 py-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500">
         </div>
         <div class="mb-3 md:mb-4">
           <label class="block text-gray-300 mb-1 md:mb-2 text-sm md:text-base">Email</label>
-          <input type="email" class="w-full bg-gray-800 rounded-lg px-3 md:px-4 py-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <input type="email"
+            class="w-full bg-gray-800 rounded-lg px-3 md:px-4 py-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500">
         </div>
         <div class="mb-3 md:mb-4">
           <label class="block text-gray-300 mb-1 md:mb-2 text-sm md:text-base">Message</label>
-          <textarea class="w-full bg-gray-800 rounded-lg px-3 md:px-4 py-2 text-sm md:text-base h-24 md:h-32 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+          <textarea
+            class="w-full bg-gray-800 rounded-lg px-3 md:px-4 py-2 text-sm md:text-base h-24 md:h-32 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
         </div>
-        <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 py-2 rounded-lg font-semibold text-sm md:text-base hover:opacity-90 transition-opacity">
+        <button type="submit"
+          class="w-full bg-gradient-to-r from-blue-500 to-purple-600 py-2 rounded-lg font-semibold text-sm md:text-base hover:opacity-90 transition-opacity">
           Send Message
         </button>
       </form>
@@ -403,20 +946,25 @@
     <!-- Footer -->
     <footer class="py-6 md:py-8 text-center border-t border-gray-800">
       <div class="flex justify-center gap-4 md:gap-6 mb-4 md:mb-6">
-        <a href="https://github.com/anmolchugh7898" class="text-gray-400 hover:text-pink-500 transition-colors text-xl md:text-2xl">
+        <a href="https://github.com/anmolchugh7898"
+          class="text-gray-400 hover:text-pink-500 transition-colors text-xl md:text-2xl">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/anmol-chugh-250a95178/" class="text-gray-400 hover:text-blue-500 transition-colors text-xl md:text-2xl">
+        <a href="https://www.linkedin.com/in/anmol-chugh-250a95178/"
+          class="text-gray-400 hover:text-blue-500 transition-colors text-xl md:text-2xl">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://x.com/ANMOLCHUGH7898" class="text-gray-400 hover:text-red-500 transition-colors text-xl md:text-2xl">
+        <a href="https://x.com/ANMOLCHUGH7898"
+          class="text-gray-400 hover:text-red-500 transition-colors text-xl md:text-2xl">
           <i class="fab fa-x-twitter"></i>
         </a>
-        <a href="mailto:anmolchugh7898@gmail.com" class="text-gray-400 hover:text-green-500 transition-colors text-xl md:text-2xl">
+        <a href="mailto:anmolchugh7898@gmail.com"
+          class="text-gray-400 hover:text-green-500 transition-colors text-xl md:text-2xl">
           <i class="fas fa-envelope"></i>
         </a>
       </div>
-      <p class="text-gray-500 text-xs md:text-sm">© <span id="current-year"></span> Anmol Chugh. All rights reserved.</p>
+      <p class="text-gray-500 text-xs md:text-sm">© <span id="current-year"></span> Anmol Chugh. All rights reserved.
+      </p>
       <p class="text-gray-600 text-xs mt-1 md:mt-2">Crafted with passion and precision</p>
     </footer>
   </section>
@@ -424,7 +972,7 @@
   <script>
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
-    
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -433,6 +981,67 @@
           behavior: 'smooth'
         });
       });
+    });
+
+    // Pause animation on hover
+    const sliderTrack = document.querySelector('.skills-track');
+    const sliderContainer = document.querySelector('.skills-slider-container');
+
+    sliderContainer.addEventListener('mouseenter', () => {
+      sliderTrack.style.animationPlayState = 'paused';
+    });
+
+    sliderContainer.addEventListener('mouseleave', () => {
+      sliderTrack.style.animationPlayState = 'running';
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile carousel functionality
+      if (window.innerWidth < 768) {
+        const carousel = document.getElementById('projects-carousel');
+        const dots = document.querySelectorAll('.dot-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        let currentIndex = 0;
+        const totalItems = document.querySelectorAll('.projects-carousel > div').length;
+
+        function updateCarousel() {
+          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+          // Update dots
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+            dot.classList.toggle('bg-gray-600', index !== currentIndex);
+            dot.classList.toggle('bg-purple-500', index === currentIndex);
+          });
+        }
+
+        // Next button
+        nextBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % totalItems;
+          updateCarousel();
+        });
+
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+          updateCarousel();
+        });
+
+        // Dot navigation
+        dots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            currentIndex = parseInt(dot.dataset.index);
+            updateCarousel();
+          });
+        });
+
+        // Auto-advance (optional)
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalItems;
+          updateCarousel();
+        }, 5000);
+      }
     });
   </script>
 
