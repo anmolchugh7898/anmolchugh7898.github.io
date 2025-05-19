@@ -20,14 +20,24 @@
       overflow-y: auto;
     }
 
-    .stars {
+    /* New Starfield Styles */
+    .starfield-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: #000 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="10" cy="10" r="0.5" fill="white"/><circle cx="20" cy="30" r="0.5" fill="white"/><circle cx="30" cy="50" r="0.5" fill="white"/><circle cx="40" cy="70" r="0.5" fill="white"/><circle cx="50" cy="90" r="0.5" fill="white"/><circle cx="60" cy="20" r="0.5" fill="white"/><circle cx="70" cy="40" r="0.5" fill="white"/><circle cx="80" cy="60" r="0.5" fill="white"/><circle cx="90" cy="80" r="0.5" fill="white"/></svg>');
       z-index: -1;
+      overflow: hidden;
+    }
+
+    #starfield {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
     }
 
     nav {
@@ -101,9 +111,7 @@
       display: flex;
       animation: scroll 20s linear infinite;
       width: calc(250px * 16);
-      /* Double the items for seamless looping */
     }
-
 
     .skill-card:hover {
       transform: translateY(-5px);
@@ -122,7 +130,6 @@
 
       100% {
         transform: translateX(calc(-250px * 8));
-        /* Move by half the width */
       }
     }
 
@@ -191,10 +198,9 @@
       animation: scroll2 40s linear infinite;
     }
 
-    .skills-track-speed-3 {
+    Currie .skills-track-speed-3 {
       animation: scroll3 60s linear infinite;
     }
-
 
     @keyframes scroll1 {
       0% {
@@ -260,7 +266,6 @@
         height: 70px;
         padding: 0.5rem;
         font-size: 14px;
-        /* smaller font for mobile */
       }
 
       .skill-card h3 {
@@ -272,7 +277,10 @@
 </head>
 
 <body class="bg-black text-white">
-  <div class="stars"></div>
+  <!-- New Starfield Background -->
+  <div class="starfield-container">
+    <canvas id="starfield"></canvas>
+  </div>
 
   <header>
     <nav>
@@ -403,7 +411,7 @@
               <div class="mb-4 relative group">
                 <!-- Main Image -->
                 <img src="https://example.com/taxwizard-screenshot.jpg" 
-                     alt="FiveStone Taxwizard Dashboard"
+                     alt="Trabu Dashboard"
                      class="w-full h-48 object-cover rounded-lg border border-gray-700 mb-2">
                 
                 <!-- Thumbnail Navigation (optional) -->
@@ -447,7 +455,7 @@
               <div class="mb-4 relative group">
                 <!-- Main Image -->
                 <img src="https://example.com/taxwizard-screenshot.jpg" 
-                     alt="FiveStone Taxwizard Dashboard"
+                     alt="Motonexa Dashboard"
                      class="w-full h-48 object-cover rounded-lg border border-gray-700 mb-2">
                 
                 <!-- Thumbnail Navigation (optional) -->
@@ -491,7 +499,7 @@
               <div class="mb-4 relative group">
                 <!-- Main Image -->
                 <img src="https://example.com/taxwizard-screenshot.jpg" 
-                     alt="FiveStone Taxwizard Dashboard"
+                     alt="Immunoact Dashboard"
                      class="w-full h-48 object-cover rounded-lg border border-gray-700 mb-2">
                 
                 <!-- Thumbnail Navigation (optional) -->
@@ -530,7 +538,6 @@
           <!-- Project 4 -->
           <div class="min-w-full px-2">
             <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
-              <!-- Project Header -->
               <h3 class="text-xl font-bold text-purple-400 mb-2">FiveStone Taxwizard</h3>
               
               <!-- Image Carousel Section -->
@@ -557,14 +564,12 @@
                 </button>
               </div>
               
-              <!-- Project Description -->
               <p class="text-gray-300 text-sm mb-4">
                 Developed a U.S. property tax estimation platform that calculates liabilities based on location, property type, and size. 
                 Engineered custom tax calculation algorithms to identify overassessed properties, and implemented direct-to-court appeal 
                 functionality enabling users to formally contest assessments through the platform.
               </p>
               
-              <!-- Tech Stack -->
               <div class="flex flex-wrap gap-2">
                 <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">NodeJs</span>
                 <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">ReactJs</span>
@@ -577,13 +582,12 @@
           </div>
         </div>
 
-
         <!-- Navigation Dots -->
         <div class="flex justify-center mt-6 gap-2">
           <button class="w-3 h-3 rounded-full bg-gray-600 dot-btn active" data-index="0"></button>
           <button class="w-3 h-3 rounded-full bg-gray-600 dot-btn" data-index="1"></button>
           <button class="w-3 h-3 rounded-full bg-gray-600 dot-btn" data-index="2"></button>
-          <button class="w-3 h-3 rounded-full bg-gray-600 dot-btn" data-index="4"></button>
+          <button class="w-3 h-3 rounded-full bg-gray-600 dot-btn" data-index="3"></button>
         </div>
 
         <!-- Navigation Arrows -->
@@ -635,6 +639,7 @@
           </div>
         </div>
 
+        <!-- Project 3 -->
         <div
           class="bg-gray-900/50 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
           <h3 class="text-lg md:text-xl font-bold text-purple-400 mb-2">Immunoact</h3>
@@ -653,6 +658,7 @@
           </div>
         </div>
 
+        <!-- Project 4 -->
         <div
           class="bg-gray-900/50 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all">
           <h3 class="text-lg md:text-xl font-bold text-purple-400 mb-2">FiveStone Taxwizard</h3>
@@ -811,108 +817,105 @@
           </div>
         </div>
       </div>
-    </div>
-    </div>
 
-    <!-- Tools & Technologies -->
-    <h3 class="text-xl font-semibold text-center mb-4 text-yellow-300">Tools & Technologies</h3>
-    <div class="skills-slider-container mb-4">
-      <div class="skills-track skills-track-speed-3">
-        <div class="skill-card">
-          <div class="skill-icon text-cyan-400"><i class="fas fa-network-wired"></i></div>
-          <h3>Microservices</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-orange-400"><i class="fab fa-aws"></i></div>
-          <h3>AWS</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-blue-500"><i class="fab fa-docker"></i></div>
-          <h3>Docker</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-purple-500"><i class="fas fa-broadcast-tower"></i></div>
-          <h3>Apache Pulsar</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-pink-400"><i class="fas fa-history"></i></div>
-          <h3>Temporal</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-red-500"><i class="fas fa-lock"></i></div>
-          <h3>Keycloak</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-green-500"><i class="fas fa-sync-alt"></i></div>
-          <h3>CI/CD</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-gray-500"><i class="fab fa-git-alt"></i></div>
-          <h3>Git</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-black"><i class="fab fa-github"></i></div>
-          <h3>GitHub</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-orange-500"><i class="fas fa-vial"></i></div>
-          <h3>Postman</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-blue-400"><i class="fab fa-jira"></i></div>
-          <h3>Jira</h3>
-        </div>
+      <!-- Tools & Technologies -->
+      <h3 class="text-xl font-semibold text-center mb-4 text-yellow-300">Tools & Technologies</h3>
+      <div class="skills-slider-container mb-4">
+        <div class="skills-track skills-track-speed-3">
+          <div class="skill-card">
+            <div class="skill-icon text-cyan-400"><i class="fas fa-network-wired"></i></div>
+            <h3>Microservices</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-orange-400"><i class="fab fa-aws"></i></div>
+            <h3>AWS</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-500"><i class="fab fa-docker"></i></div>
+            <h3>Docker</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-purple-500"><i class="fas fa-broadcast-tower"></i></div>
+            <h3>Apache Pulsar</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-pink-400"><i class="fas fa-history"></i></div>
+            <h3>Temporal</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-red-500"><i class="fas fa-lock"></i></div>
+            <h3>Keycloak</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-green-500"><i class="fas fa-sync-alt"></i></div>
+            <h3>CI/CD</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-gray-500"><i class="fab fa-git-alt"></i></div>
+            <h3>Git</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-black"><i class="fab fa-github"></i></div>
+            <h3>GitHub</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-orange-500"><i class="fas fa-vial"></i></div>
+            <h3>Postman</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-400"><i class="fab fa-jira"></i></div>
+            <h3>Jira</h3>
+          </div>
 
-        <!-- Duplicate -->
-        <div class="skill-card">
-          <div class="skill-icon text-cyan-400"><i class="fas fa-network-wired"></i></div>
-          <h3>Microservices</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-orange-400"><i class="fab fa-aws"></i></div>
-          <h3>AWS</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-blue-500"><i class="fab fa-docker"></i></div>
-          <h3>Docker</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-purple-500"><i class="fas fa-broadcast-tower"></i></div>
-          <h3>Apache Pulsar</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-pink-400"><i class="fas fa-history"></i></div>
-          <h3>Temporal</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-red-500"><i class="fas fa-lock"></i></div>
-          <h3>Keycloak</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-green-500"><i class="fas fa-sync-alt"></i></div>
-          <h3>CI/CD</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-gray-500"><i class="fab fa-git-alt"></i></div>
-          <h3>Git</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-black"><i class="fab fa-github"></i></div>
-          <h3>GitHub</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-orange-500"><i class="fas fa-vial"></i></div>
-          <h3>Postman</h3>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon text-blue-400"><i class="fab fa-jira"></i></div>
-          <h3>Jira</h3>
+          <!-- Duplicate -->
+          <div class="skill-card">
+            <div class="skill-icon text-cyan-400"><i class="fas fa-network-wired"></i></div>
+            <h3>Microservices</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-orange-400"><i class="fab fa-aws"></i></div>
+            <h3>AWS</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-500"><i class="fab fa-docker"></i></div>
+            <h3>Docker</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-purple-500"><i class="fas fa-broadcast-tower"></i></div>
+            <h3>Apache Pulsar</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-pink-400"><i class="fas fa-history"></i></div>
+            <h3>Temporal</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-red-500"><i class="fas fa-lock"></i></div>
+            <h3>Keycloak</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-green-500"><i class="fas fa-sync-alt"></i></div>
+            <h3>CI/CD</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-gray-500"><i class="fab fa-git-alt"></i></div>
+            <h3>Git</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-black"><i class="fab fa-github"></i></div>
+            <h3>GitHub</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-orange-500"><i class="fas fa-vial"></i></div>
+            <h3>Postman</h3>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon text-blue-400"><i class="fab fa-jira"></i></div>
+            <h3>Jira</h3>
+          </div>
         </div>
       </div>
     </div>
-    </div>
   </section>
-
 
   <!-- Contact Section with Integrated Footer -->
   <section id="contact" class="max-w-2xl mx-auto px-4 flex flex-col justify-between">
@@ -983,20 +986,20 @@
       });
     });
 
-    // Pause animation on hover
-    const sliderTrack = document.querySelector('.skills-track');
-    const sliderContainer = document.querySelector('.skills-slider-container');
-
-    sliderContainer.addEventListener('mouseenter', () => {
-      sliderTrack.style.animationPlayState = 'paused';
+    // Pause animation on hover for skills slider
+    const sliderContainers = document.querySelectorAll('.skills-slider-container');
+    sliderContainers.forEach(container => {
+      const track = container.querySelector('.skills-track');
+      container.addEventListener('mouseenter', () => {
+        track.style.animationPlayState = 'paused';
+      });
+      container.addEventListener('mouseleave', () => {
+        track.style.animationPlayState = 'running';
+      });
     });
 
-    sliderContainer.addEventListener('mouseleave', () => {
-      sliderTrack.style.animationPlayState = 'running';
-    });
-
+    // Mobile carousel functionality
     document.addEventListener('DOMContentLoaded', function () {
-      // Mobile carousel functionality
       if (window.innerWidth < 768) {
         const carousel = document.getElementById('projects-carousel');
         const dots = document.querySelectorAll('.dot-btn');
@@ -1007,7 +1010,6 @@
 
         function updateCarousel() {
           carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-
           // Update dots
           dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentIndex);
@@ -1036,15 +1038,87 @@
           });
         });
 
-        // Auto-advance (optional)
+        // Auto-advance
         setInterval(() => {
           currentIndex = (currentIndex + 1) % totalItems;
           updateCarousel();
         }, 5000);
       }
     });
+
+    // New Starfield Animation
+    const starfieldCanvas = document.getElementById('starfield');
+    const starfieldCtx = starfieldCanvas.getContext('2d');
+    
+    // Set canvas size to window size
+    function resizeStarfieldCanvas() {
+      starfieldCanvas.width = window.innerWidth;
+      starfieldCanvas.height = window.innerHeight;
+    }
+    
+    window.addEventListener('resize', resizeStarfieldCanvas);
+    resizeStarfieldCanvas();
+    
+    // Star properties
+    const stars = [];
+    const numStars = 300;
+    const centerX = starfieldCanvas.width / 2;
+    const centerY = starfieldCanvas.height / 2;
+    
+    // Create stars
+    function createStars() {
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * starfieldCanvas.width - centerX,
+          y: Math.random() * starfieldCanvas.height - centerY,
+          z: Math.random() * 1000,
+          size: Math.random() * 2,
+          speed: Math.random() * 1 + 2
+        });
+      }
+    }
+    
+    function drawStars() {
+      starfieldCtx.fillStyle = "rgba(0, 0, 0, 0.2)";
+      starfieldCtx.fillRect(0, 0, starfieldCanvas.width, starfieldCanvas.height);
+      
+      starfieldCtx.save();
+      starfieldCtx.translate(centerX, centerY);
+      
+      for (let i = 0; i < stars.length; i++) {
+        const star = stars[i];
+        
+        // Update z position (moving toward viewer)
+        star.z -= star.speed;
+        
+        // Reset star if it passes the viewer
+        if (star.z <= 0) {
+          star.z = 1000;
+          star.x = Math.random() * starfieldCanvas.width - centerX;
+          star.y = Math.random() * starfieldCanvas.height - centerY;
+        }
+        
+        // Project 3D position to 2D screen
+        const scale = 500 / star.z;
+        const x = star.x * scale;
+        const y = star.y * scale;
+        const r = star.size * scale;
+        
+        // Draw the star
+        const brightness = 1 - star.z / 1000;
+        starfieldCtx.fillStyle = `rgba(255, 255, 255, ${brightness})`;
+        starfieldCtx.beginPath();
+        starfieldCtx.arc(x, y, r, 0, Math.PI * 2);
+        starfieldCtx.fill();
+      }
+      
+      starfieldCtx.restore();
+      
+      requestAnimationFrame(drawStars);
+    }
+    
+    createStars();
+    drawStars();
   </script>
-
 </body>
-
 </html>
